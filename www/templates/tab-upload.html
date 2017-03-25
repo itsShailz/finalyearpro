@@ -1,0 +1,62 @@
+<!--This section deals with uploading the reviews that the user inputs.-->
+<ion-view view-title="Image Upload">
+  <div class="bar bar-header bar-assertive">
+    <h1 class="title">Upload Review</h1>
+  </div>
+  <ion-content  data-ng-controller="UploadCtrl">
+    <form id="reviewform">
+    <div class="list list-inset">
+      </br></br></br>
+      <label class="item item-input">
+        <img id="imagepreview" src="http://placehold.it/110x110">
+        <label class="button button-small button-assertive ion-upload" id="selImg">
+          Select Image
+          <input type="file" name="pic" class="imageupload"  id="fileButton" accept="image/*" style="display: none;" >
+        </label>
+      </br></br>
+        <button class="button button-small button-assertive ion-images" id="imagebtn" display="block" ng-click="imageUpload()"> &nbsp;Upload image&nbsp;</button>
+        </br>
+      </label>
+      <label class="item item-input" >
+        <input id="rreview" type="text" ng-model="review" placeholder="Enter Review" maxlength="140" required>
+      </label>
+      <label class="item item-input">
+      <p id="remaining"></p>
+      </label>
+      <label class = "item item-input item-select ion-star ">
+        <div class = "input-label" > &nbsp;Rating</div>
+        <select id="rating" ng-model="rating" ng-change="showSelected(rating)" required="required">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </label>
+      <label class = "item item-input item-select">
+        <div class = "input-label">Halal?</div>
+        <select id="halal" ng-model="halaloption" ng-change="showSelected(halaloption)" required>
+          <option value="Not Specified">Not Specified</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </label>
+      <label class = "item item-input item-select ion-leaf">
+        <div class = "input-label"> &nbsp;Vegan Friendly?</div>
+        <select id="vegan" ng-model="veganoption" ng-change="showSelected(veganoption)" required>
+          <option value="Not Specified">Not Specified</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </label>
+      <label class="item item-input" >
+      <input type="text" id="address" placeholder="Address of place" google-autocomplete-suggestion location="data.location" country-code="{{countryCode}}" on-selection="onAddressSelection(location)" ng-model="data.location.formatted_address">
+      </label>
+        <button id="uploadbtn" class="button button-small button-assertive ion-upload" display="block" ng-click="upload()"> Upload Review</button>
+    </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
+
+
